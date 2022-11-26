@@ -15,17 +15,17 @@ const FAQ = () =>  {
 
     return (
         <PageContainer>
-            <Stack direction="row" sx={{px: 16, py: 12}}>
-                <Stack sx={{width: 1/3, boxSizing: 'border-box'}}>
+            <Stack sx={{px: {xs: 2, md: 16}, py: {xs: 2, md: 12}, flexDirection: { xs: 'column-reverse', md: 'row' }, alignItems: { xs: 'center', md: 'flex-start' }}}>
+                <Stack sx={{width: {xs: 1, md: 1/3}, boxSizing: 'border-box', order: { xs: 2, md: 1 }}}>
                     <Text component='h5' message='Talk With Us' />
                     <Text component='p' message='Click the button below to go to our email form to start a conversation with us today. We are here to help you get started with your grow setup.' sx={{color: '#999999', fontSize: '16px', my: 2.5, lineHeight: '30px'}} />
     
-                    <Button variant="contained" color="primary" sx={{width: 4/7}} onClick={() => navigate(RouteMap.CONTACT)}>
+                    <Button variant="contained" color="primary" sx={{width: {xs: 1,  md:4/7}}} onClick={() => navigate(RouteMap.CONTACT)}>
                         Contact Us
                     </Button>
                 </Stack>
     
-                <Stack sx={{width: 1, mx: 4}}>
+                <Stack sx={{width: 1, mx: 4, order: { xs: 3, md: 1 }}}>
                     <Text component="h4" message="Frequently Asked Questions" sx={{fontSize: '30px', mb: 2}} />
                     <Text component="p" message="Question Not Answered? Email Us" sx={{fontSize: '21px', color: '#999999', cursor: 'pointer', '&:hover': {textDecoration: 'underline'}}} />
     
@@ -44,7 +44,7 @@ const FAQ = () =>  {
                     <Text component="p" message="We will be offering free grow classes where members can share their knowledge of growing and cultivating herbs and plants for the purpose of bettering the quality of life of our members under our constitutional right as citizens of our great nation." sx={{fontSize: '18px', color: '#999999', my: 3}} />
                 </Stack>
     
-                <Stack sx={{width: 1/3}}>
+                <Stack sx={{width: {xs: 1, md: 1/3}, alignItems: { xs: 'center', md: 'flex-start'}, textAlign: { xs: 'center', md: 'left' }, my: { xs: 5, md: 0 }, order: {xs: 1, md: 2} }}>
                     <StoreHours />
                 </Stack>
             </Stack>
