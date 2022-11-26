@@ -10,7 +10,7 @@ const ContactForm = () => {
     const {
         control,
         handleSubmit,
-        formState: { errors, isValid }
+        reset
     } = useForm({
         mode: 'all',
         defaultValues: {
@@ -21,7 +21,16 @@ const ContactForm = () => {
     });
 
     const sendContactEmail = (values) => {
-        console.log({values})
+        const emailMessage = {
+            SecureToken: '7ee760bf-1d82-4404-a002-8b8a29992318',
+            To: 'Dankyshydro@gmail.com',
+            From: 'bernardwebdev@gmail.com',
+            Subject: `Contact Request - ${values.name}`,
+            Body: `${values.message} ---- Reply To: ${values.email}`,
+        };
+
+        window.Email.send(emailMessage)
+        reset();
     }
 
     return (
