@@ -14,7 +14,7 @@ const TopNavigation = () => {
     const determineTextColor = (route, pathname) => route === pathname ? 'white' : '#C0C0C0'
 
     const textStyles = (route) => ({
-        mx: 3, 
+        mx: { xs: 1, sm: 2, md: 3 }, 
         color: determineTextColor(route, pathname),
         fontWeight: determineHighlight(route, pathname), 
         fontSize: '17.5px', 

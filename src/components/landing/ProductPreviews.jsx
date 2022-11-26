@@ -9,17 +9,17 @@ import BloomImage from '../../assets/bloom-demo.png';
 import SugareeImage from '../../assets/sugaree-demo.png';
 
 const ProductPreviews = () => (
-    <Stack sx={{py: 10, px: 14}}>
-        <Stack direction="row" justifyContent="space-evenly" sx={{width: 1, mb: 10}}>
-            <Stack direction="row" sx={{width: 1/3}}>
+    <Stack sx={{py: 10, px: {xs:2, md: 14}}}>
+        <Stack justifyContent="space-evenly" sx={{width: 1, mb: 10, flexDirection: { xs: 'column', md: 'row' }}}>
+            <Stack direction="row" sx={{width: {xs: 1, md: 1/3}}}>
                 <img src={MicroImage} alt="Mirco 6-0-0" style={{height: '140px', width: '140px', borderRadius: '8%'}} />
-                <Stack sx={{ml: 4}}>
+                <Stack sx={{ml: {xs: 2, md: 4}}}>
                     <Text sx={{mb: 1, fontSize: '21px'}} component="h4" message="Micro 6-0-0™" />
                     <Text sx={{opacity: 0.6}} component="p" message="This is the foundation for the 3-Part formula and is used at the same rate through the entire life cycle of your plants. It contains all of the micronutrients needed for peak health." />
                 </Stack>
             </Stack>
 
-            <Stack direction="row" sx={{width: 1/3}}>
+            <Stack direction="row" sx={{width: {xs: 1, md: 1/3}, mt: { xs: 6, md: 0 }}}>
                 <img src={GrowImage} alt="Grow 2-1-6" style={{height: '140px', width: '140px', borderRadius: '8%'}} />
                 <Stack sx={{ml: 4}}>
                     <Text sx={{mb: 1, fontSize: '21px'}} component="h4" message="Grow 2-1-6™" />
@@ -28,8 +28,8 @@ const ProductPreviews = () => (
             </Stack>
         </Stack>
 
-        <Stack direction="row" justifyContent="space-evenly" sx={{width: 1}}>
-            <Stack direction="row" sx={{width: 1/3}}>
+        <Stack justifyContent="space-evenly" sx={{width: 1, flexDirection: { xs: 'column', md: 'row' }}}>
+            <Stack direction="row" sx={{width: {xs: 1, md: 1/3}}}>
                 <img src={BloomImage} alt="Bloom 0-6-5" style={{height: '140px', width: '140px', borderRadius: '8%'}} />
                 <Stack sx={{ml: 4}}>
                     <Text sx={{mb: 1, fontSize: '21px'}} component="h4" message="Bloom 0-6-5™" />
@@ -37,7 +37,7 @@ const ProductPreviews = () => (
                 </Stack>
             </Stack>
 
-            <Stack direction="row" sx={{width: 1/3}}>
+            <Stack direction="row" sx={{width: {xs: 1, md: 1/3}, mt: { xs: 6, md: 0 }}}>
                 <img src={SugareeImage} alt="Sugaree" style={{height: '140px', width: '140px', borderRadius: '8%'}} />
                 <Stack sx={{ml: 4}}>
                     <Text sx={{mb: 1, fontSize: '21px'}} component="h4" message="Sugaree™" />
