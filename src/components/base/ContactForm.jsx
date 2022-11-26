@@ -77,7 +77,7 @@ const ContactForm = () => {
                 }}
                 sx={{my: 4}}
             />
-            <Button variant="contained" color="primary" sx={{width: 3/7, alignSelf: 'flex-end'}} onClick={handleSubmit(sendContactEmail)}>
+            <Button variant="contained" color="primary" sx={{width: { xs: 1, md: 3/7 }, alignSelf: 'flex-end'}} onClick={handleSubmit(sendContactEmail)}>
                 Send Message
             </Button>
         </Stack>

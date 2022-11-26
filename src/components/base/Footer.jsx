@@ -11,9 +11,9 @@ const Footer = ({hideContactForm}) => {
     const navigate = useNavigate();
 
     return (
-        <Stack justifyContent="space-around" alignItems="space-between" sx={{bgcolor: 'info.light', height: '70vh', pt: 4}}>
-            <Stack direction="row" justifyContent="space-evenly" alignItems="flex-start">
-                <Stack>
+        <Stack justifyContent="space-around" alignItems="space-between" sx={{bgcolor: 'info.light', p: {xs: 4, md: 8}}}>
+            <Stack justifyContent="space-evenly" alignItems="flex-start" sx={{ flexDirection: { xs: 'column-reverse', md: 'row' } }}>
+                <Stack sx={{alignItems: { xs: 'center', md: 'flex-start' }, width: { xs: 1, md: 'auto' }}}>
                     <Text component="h5" message="Danky's Hydro" sx={{mb: 2, fontWeight: 600}} />
                     <Text component="body1" message="Home" onClick={() => navigate(RouteMap.HOME)} sx={{mb: 2, opacity: 0.6, cursor: 'pointer', '&:hover': { textDecoration: 'underline' }}} />
                     <Text component="body1" message="Shop" onClick={() => navigate(RouteMap.SHOP)} sx={{mb: 2, opacity: 0.6, cursor: 'pointer', '&:hover': { textDecoration: 'underline' }}} />
@@ -22,7 +22,7 @@ const Footer = ({hideContactForm}) => {
                     <Text component="body1" message="Forum" onClick={() => navigate(RouteMap.FORUM)} sx={{mb: 2, opacity: 0.6, cursor: 'pointer', '&:hover': { textDecoration: 'underline' }}} />
                 </Stack>
     
-                <Stack>
+                <Stack sx={{ mt: { xs: 12, md: 0 }, mb: { xs: 4, md: 0 }, alignItems: { xs: 'center', md: 'flex-start' }, width: { xs: 1, md: 'auto' } }}>
                     <Text component="h6" message="Email:" sx={{mb: 0.5, fontWeight: 600}} />
                     <Text component="body1" message="Dankyshydro@gmail.com" sx={{mb: 2, opacity: 0.6}} />
                     
@@ -36,7 +36,7 @@ const Footer = ({hideContactForm}) => {
     
                 {!hideContactForm ? <ContactForm /> : <></>}
             </Stack>
-            <Text align="center" component="subtitle2" message="© Untitled. All rights reserved | Design: HTML5 UP | Built By DevShop24" sx={{opacity: 0.6}} />
+            <Text align="center" component="subtitle2" message="© Untitled. All rights reserved | Design: HTML5 UP | Built By DevShop24" sx={{opacity: 0.6, mt: 8}} />
         </Stack>
     );
 }
