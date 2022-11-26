@@ -1,12 +1,11 @@
 import React from "react";
 
-const Shop = () => {
+import PageContainer from "../components/base/PageContainer";
 
-    return (
-        <div>
-            Shop Page
-        </div>
-    )
-}
+const Shop = () => (
+    <PageContainer>
+        <p>Shop</p>
+    </PageContainer>
+);
 
 export default Shop;

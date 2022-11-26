@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import ContactForm from './ContactForm';
 import Text from '../base/Text';
 
-const Footer = () => (
+const Footer = ({hideContactForm}) => (
     <Stack justifyContent="space-around" alignItems="space-between" sx={{bgcolor: 'info.light', height: '70vh', pt: 4}}>
         <Stack direction="row" justifyContent="space-evenly" alignItems="flex-start">
             <Stack>
@@ -28,7 +28,7 @@ const Footer = () => (
                 <Text component="body1" message="Bristol, Va. 24201" sx={{mb: 2, opacity: 0.6}} />
             </Stack>
 
-            <ContactForm />
+            {!hideContactForm ? <ContactForm /> : <></>}
         </Stack>
         <Text align="center" component="subtitle2" message="© Untitled. All rights reserved | Design: HTML5 UP | Built By DevShop24" sx={{opacity: 0.6}} />
     </Stack>

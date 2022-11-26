@@ -1,12 +1,11 @@
 import React from "react";
 
-const FAQ = () => {
+import PageContainer from "../components/base/PageContainer";
 
-    return (
-        <div>
-            FAQ Page
-        </div>
-    )
-}
+const FAQ = () =>  (
+    <PageContainer>
+        <p>FAQ</p>
+    </PageContainer>
+);
 
 export default FAQ;

@@ -1,10 +1,12 @@
 import React from "react";
 
+import PageContainer from "../components/base/PageContainer";
+
 const Contact = () => {
     return (
-        <div>
-            Contact Page
-        </div>
+        <PageContainer>
+            <p>Contact</p>
+        </PageContainer>
     )
 }
 

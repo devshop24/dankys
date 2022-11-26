@@ -1,12 +1,11 @@
 import React from "react";
 
-const Forum = () => {
+import PageContainer from "../components/base/PageContainer";
 
-    return (
-        <div>
-            Forum Page
-        </div>
-    )
-}
+const Forum = () => (
+    <PageContainer>
+        <p>Forum</p>
+    </PageContainer>
+);
 
 export default Forum;
