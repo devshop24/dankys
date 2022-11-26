@@ -5,7 +5,7 @@ import Contact from '../pages/Contact';
 import FAQ from '../pages/FAQ';
 // import Forum from '../pages/Forum';
 import Landing from '../pages/Landing';
-// import Shop from '../pages/Shop';
+import Shop from '../pages/Shop';
 import FourOhFour from '../pages/404';
 import ComingSoon from '../pages/ComingSoon';
 
@@ -19,7 +19,7 @@ function App() {
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/faq' element={<FAQ />} />
                 <Route path='/forum' element={<ComingSoon />} />
-                <Route path='/shop' element={<ComingSoon />} />
+                <Route path='/shop' element={<Shop />} />
 
                 <Route path='*' element={<FourOhFour />} />
             </Routes>
