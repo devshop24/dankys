@@ -4,14 +4,7 @@ import Stack from '@mui/material/Stack';
 import Text from '../base/Text';
 
 import { useNavigate, useLocation } from 'react-router-dom';
-
-const RouteMap = {
-    HOME: '/',
-    SHOP: '/shop',
-    CONTACT: '/contact',
-    FAQ: '/faq',
-    FORUM: '/forum'
-}
+import { RouteMap } from '../../utils/navigation';
 
 const TopNavigation = () => {
     const { pathname } = useLocation();
