@@ -3,9 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 
 import Contact from '../pages/Contact';
 import FAQ from '../pages/FAQ';
-import Forum from '../pages/Forum';
+// import Forum from '../pages/Forum';
 import Landing from '../pages/Landing';
-import Shop from '../pages/Shop';
+// import Shop from '../pages/Shop';
 import FourOhFour from '../pages/404';
 import ComingSoon from '../pages/ComingSoon';
 
