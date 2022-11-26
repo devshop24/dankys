@@ -1,5 +1,5 @@
 const h5 = {
-    fontSize: 20,
+    fontSize: 21,
     fontWeight: 530,
     margin: '2.5px 0'
 }
