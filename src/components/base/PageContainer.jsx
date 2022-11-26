@@ -5,12 +5,12 @@ import TitleBar from "./TitleBar";
 import TopNavigation from "./TopNavigation";
 import Footer from "./Footer";
 
-const PageContainer = ({children}) => (
+const PageContainer = ({hideFooterForm, children}) => (
     <Stack sx={{ width: 1 }}>
         <TitleBar />
         <TopNavigation />
         {children}
-        <Footer />
+        <Footer hideContactForm={hideFooterForm}/>
     </Stack>
 );
 

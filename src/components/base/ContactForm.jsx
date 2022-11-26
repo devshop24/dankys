@@ -10,10 +10,6 @@ const ContactForm = () => {
     const {
         control,
         handleSubmit,
-        getValues,
-        setValue,
-        reset,
-        watch,
         formState: { errors, isValid }
     } = useForm({
         mode: 'all',
