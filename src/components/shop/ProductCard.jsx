@@ -5,7 +5,7 @@ import Text from '../base/Text';
 import Button from '@mui/material/Button';
 
 const ProductCard = ({ Image, name, description, price}) => (
-    <Stack direction="row" sx={{width: 2/5, height: '250px', boxShadow: 2, mb: 3}}>
+    <Stack direction="row" sx={{width: 2/5, height: '250px', boxShadow: 3, mb: 3}}>
         <Stack sx={{mr: 1.5}}>
             <img 
                 src={Image} 

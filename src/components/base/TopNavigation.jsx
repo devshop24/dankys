@@ -7,6 +7,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { RouteMap } from '../../utils/navigation';
 
 const TopNavigation = () => {
+    const user = {};
+
     const { pathname } = useLocation();
     const navigate = useNavigate();
 
@@ -54,6 +56,26 @@ const TopNavigation = () => {
                 onClick={() => navigate(RouteMap.FORUM)} 
                 sx={textStyles(RouteMap.FORUM)}
             />
+
+            {
+                Object.keys(user).length 
+                    ? (
+                        <Text 
+                            component="p" 
+                            message="Cart" 
+                            onClick={() => navigate(RouteMap.CART)} 
+                            sx={textStyles(RouteMap.FORUM)}
+                        />
+                    )
+                    : (
+                        <Text 
+                            component="p" 
+                            message="Login" 
+                            onClick={() => navigate(RouteMap.AUTH)} 
+                            sx={textStyles(RouteMap.FORUM)}
+                        />
+                    ) 
+            }
         </Stack>
     );
 }

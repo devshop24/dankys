@@ -1,6 +1,7 @@
 import './styles.css';
 import { Routes, Route } from 'react-router-dom';
 
+import Auth from '../pages/Auth';
 import Contact from '../pages/Contact';
 import FAQ from '../pages/FAQ';
 // import Forum from '../pages/Forum';
@@ -20,6 +21,7 @@ function App() {
                 <Route path='/faq' element={<FAQ />} />
                 <Route path='/forum' element={<ComingSoon />} />
                 <Route path='/shop' element={<Shop />} />
+                <Route path='/authentication' element={<Auth />} />
 
                 <Route path='*' element={<FourOhFour />} />
             </Routes>

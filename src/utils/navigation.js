@@ -3,5 +3,7 @@ export const RouteMap = {
     SHOP: '/shop',
     CONTACT: '/contact',
     FAQ: '/faq',
-    FORUM: '/forum'
+    FORUM: '/forum',
+    CART: '/cart',
+    AUTH: '/authentication'
 }
