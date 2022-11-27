@@ -64,7 +64,7 @@ const TopNavigation = () => {
                             component="p" 
                             message="Cart" 
                             onClick={() => navigate(RouteMap.CART)} 
-                            sx={textStyles(RouteMap.FORUM)}
+                            sx={textStyles(RouteMap.CART)}
                         />
                     )
                     : (
@@ -72,7 +72,7 @@ const TopNavigation = () => {
                             component="p" 
                             message="Login" 
                             onClick={() => navigate(RouteMap.AUTH)} 
-                            sx={textStyles(RouteMap.FORUM)}
+                            sx={textStyles(RouteMap.AUTH)}
                         />
                     ) 
             }

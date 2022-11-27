@@ -29,13 +29,13 @@ const Shop = () =>{
             nutrients: false,
             lights: false,
             seeds: false,
-            cbd: false
+            cbd: false,
+            brand1: false,
+            brand2: false,
+            brand3: false,
+            brand4: false
         }
     });
-
-    const nutrients = watch('nutrients');
-
-    console.log({nutrients});
 
     return (
         <PageContainer>

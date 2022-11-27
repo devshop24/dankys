@@ -6,8 +6,10 @@ import ProductCard from './ProductCard';
 const ProductsList = ({products}) => (
     <Stack direction="row" justifyContent='space-between' flexWrap='wrap' sx={{p: 6, boxSizing: 'border-box'}}>
         {
-            products.map(({ Image, name, description, price}) => (
+            products.map(({ id, Image, name, description, price}) => (
                 <ProductCard 
+                    key={id}
+                    id={id}
                     Image={Image}
                     name={name}
                     description={description}
