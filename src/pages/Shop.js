@@ -7,11 +7,21 @@ import ProductsList from "../components/shop/ProductsList";
 
 import { useForm } from "react-hook-form";
 
+import BannerImage from '../assets/banner.jpg';
+
+const mockProducts = []
+
+for(let i = 0; i < 14; i++) mockProducts.push({
+    id: i,
+    Image: BannerImage,
+    name: `product-${i}`,
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt accusamus voluptatum fugit est! Nisi atque quia cupiditate explicabo laboriosam?" ,
+    price: 10.00
+});
+
 const Shop = () =>{
     const {
         control,
-        handleSubmit,
-        reset,
         watch
     } = useForm({
         mode: 'all',
@@ -31,7 +41,7 @@ const Shop = () =>{
         <PageContainer>
             <Stack direction="row">
                 <CategoriesSideBar control={control} />
-                <ProductsList />
+                <ProductsList products={mockProducts} />
             </Stack>
         </PageContainer>
     );

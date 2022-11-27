@@ -17,7 +17,7 @@ const CheckboxControlled = ({ name, label, rules, control, handleChange, sx, cy 
                 <FormControlLabel
                     value={value}
                     onChange={handleChange ? () => handleChange(onChange, value) : onChange}
-                    control={<Checkbox data-cy={cy} checked={Boolean(value)} size="medium" color="info" sx={{ color: info.main }} />} label={label}
+                    control={<Checkbox data-cy={cy} checked={Boolean(value)} size="medium" color="primary" sx={{ color: info.main }} />} label={label}
                 />
             </FormGroup>
         )}
