@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import ProductCard from './ProductCard';
 
 const ProductsList = ({products}) => (
-    <Stack direction="row" justifyContent='space-between' flexWrap='wrap' sx={{p: 6, boxSizing: 'border-box'}}>
+    <Stack justifyContent='space-between' flexWrap='wrap' sx={{p: {xs: 0, md: 6}, boxSizing: 'border-box', flexDirection: { xs: 'column', md: 'row' }}}>
         {
             products.map(({ id, Image, name, description, price}) => (
                 <ProductCard 

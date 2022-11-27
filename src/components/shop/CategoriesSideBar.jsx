@@ -5,7 +5,7 @@ import CheckboxControlled from '../inputs/CheckboxControlled';
 import Text from '../base/Text';
 
 const CategoriesSideBar = ({ control }) => (
-    <Stack sx={{ bgcolor: 'info.light', py:3, px: 5 }}>
+    <Stack sx={{ bgcolor: 'info.light', py:3, px: 5, display: {xs: 'none', md: 'flex'} }}>
         <Text component="h5" message="Categories" />
         <Stack sx={{ml: 2}}>
             <CheckboxControlled 
