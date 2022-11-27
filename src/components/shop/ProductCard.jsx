@@ -4,13 +4,13 @@ import Stack from '@mui/material/Stack';
 import Text from '../base/Text';
 import Button from '@mui/material/Button';
 
-const ProductCard = ({ id, Image, name, description, price}) => {
+const ProductCard = ({ id, Image, name, description, price, cartView}) => {
     const addToCart = () => {
         console.log('Add To Cart::', id);
     }
 
     return (
-        <Stack direction="row" sx={{width: 2/5, height: '250px', boxShadow: 3, mb: 3}}>
+        <Stack direction="row" sx={{width: cartView ? 1 : 2/5, height: '250px', boxShadow: 3, mb: 3}}>
             <Stack sx={{mr: 1.5}}>
                 <img 
                     src={Image} 
@@ -32,16 +32,22 @@ const ProductCard = ({ id, Image, name, description, price}) => {
                     sx={{mt: 2}}
                 />
     
-                <Stack direction="row" alignItems="flex-end" justifyContent="space-between" sx={{mt: 2}}>    
-                    <Text 
+                <Stack direction="row" alignItems="flex-end" justifyContent={!cartView ? 'space-between' : 'flex-end'} sx={{mt: 2}}>    
+                    <Text  
                         component="body1"
                         message={`$${price.toFixed(2)}`}
                         sx={{mt: 2, mr: 4, alignSelf: 'flex-end', fontSize: '20px', fontWeight: 400, letterSpacing: '0.5px'}}
                     />
     
-                    <Button variant="contained" color="primary" size="small" sx={{height: '30px'}} onClick={addToCart}>
-                        Add To Cart
-                    </Button>
+                    {
+                        !cartView 
+                            ? (
+                                <Button variant="contained" color="primary" size="small" sx={{height: '30px'}} onClick={addToCart}>
+                                    Add To Cart
+                                </Button>
+                            )
+                            : <></>
+                    }
                 </Stack>
             </Stack>
         </Stack>

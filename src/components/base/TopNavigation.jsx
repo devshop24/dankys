@@ -7,7 +7,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { RouteMap } from '../../utils/navigation';
 
 const TopNavigation = () => {
-    const user = {};
+    const user = {
+        id: 1
+    };
 
     const { pathname } = useLocation();
     const navigate = useNavigate();
