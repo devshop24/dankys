@@ -8,7 +8,7 @@ import Register from '../components/auth/Register';
 
 const Auth = () => (
     <PageContainer>
-        <Stack direction="row" justifyContent="space-evenly" alignItems="flex-start">
+        <Stack sx={{flexDirection: { xs: 'column', md: 'row' }}} justifyContent="space-evenly" alignItems="flex-start">
             <Login />
             <Register />
         </Stack>

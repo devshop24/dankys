@@ -30,7 +30,7 @@ const Register = () => {
         console.log({values})
     }
     return (
-        <Stack sx={{boxShadow: 3, p: 3, m: 3, minHeight: '300px', width: '400px' }} justifyContent="space-evenly">
+        <Stack sx={{boxShadow: 3, p: 3, m: 3, minHeight: '300px', width: {xs: '300px', md: '400px'} }} justifyContent="space-evenly">
             <Text component="h4" message="Register" sx={{borderBottom: '1px solid black'}} />
             <TextFieldControlled 
                 name="name"
