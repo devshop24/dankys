@@ -29,7 +29,7 @@ const ProductCard = ({ id, Image, name, description, price, cartView}) => {
                 <Text 
                     component="p" 
                     message={description}
-                    sx={{mt: 2}}
+                    sx={{mt: 2, fontSize: { xs: '12px', md: '16px' }, width: { xs: 0.85, md: 1 }}}
                 />
     
                 <Stack direction="row" alignItems="flex-end" justifyContent={!cartView ? 'space-between' : 'flex-end'} sx={{mt: 2}}>    
