@@ -20,7 +20,7 @@ const ImageHeader = () => {
             textAlign: 'center',
             position: 'relative',
         }}>
-            <Text component="h2" message="Spread Kindess Like Confetti" sx={{
+            <Text component="h2" message="Spread Kindness Like Confetti" sx={{
                     fontSize: '48px',
                     color: 'white',
                     letterSpacing: '1.5px',

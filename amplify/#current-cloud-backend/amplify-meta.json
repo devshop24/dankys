@@ -1,0 +1,61 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dankys-dev-124551-authRole",
+      "UnauthRoleArn": "arn:aws:iam::980735028127:role/amplify-dankys-dev-124551-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::980735028127:role/amplify-dankys-dev-124551-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-dankys-dev-124551-deployment",
+      "UnauthRoleName": "amplify-dankys-dev-124551-unauthRole",
+      "StackName": "amplify-dankys-dev-124551",
+      "StackId": "arn:aws:cloudformation:us-east-1:980735028127:stack/amplify-dankys-dev-124551/7fdb56e0-73fb-11ed-8ac7-0e7c28c7eb37",
+      "AmplifyAppId": "dr60jjh0dwvrs"
+    }
+  },
+  "auth": {
+    "dankysa4d59935": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "ADDRESS",
+          "BIRTHDATE",
+          "EMAIL",
+          "NAME"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-dankys-dev-124551-deployment/amplify-cfn-templates/auth/dankysa4d59935-cloudformation-template.json",
+        "logicalId": "authdankysa4d59935"
+      },
+      "lastPushTimeStamp": "2022-12-04T17:49:49.170Z",
+      "output": {
+        "UserPoolId": "us-east-1_3qpqnbFo2",
+        "AppClientIDWeb": "1hak0v20obuuhf2q9q634n4rs2",
+        "AppClientID": "6jtnomfb7ikfca0mbb702ved9l",
+        "IdentityPoolId": "us-east-1:78bb64e6-cf2e-4acd-89f2-12f54bd5485a",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:980735028127:userpool/us-east-1_3qpqnbFo2",
+        "IdentityPoolName": "dankysa4d59935_identitypool_a4d59935__dev",
+        "UserPoolName": "dankysa4d59935_userpool_a4d59935"
+      },
+      "lastPushDirHash": "FcC3w4Z49fjCAURRLjVGfflwXEY="
+    }
+  }
+}
