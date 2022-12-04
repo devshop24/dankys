@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dankys-dev-124551-authRole",
+      "UnauthRoleArn": "arn:aws:iam::980735028127:role/amplify-dankys-dev-124551-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::980735028127:role/amplify-dankys-dev-124551-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-dankys-dev-124551-deployment",
+      "UnauthRoleName": "amplify-dankys-dev-124551-unauthRole",
+      "StackName": "amplify-dankys-dev-124551",
+      "StackId": "arn:aws:cloudformation:us-east-1:980735028127:stack/amplify-dankys-dev-124551/7fdb56e0-73fb-11ed-8ac7-0e7c28c7eb37",
+      "AmplifyAppId": "dr60jjh0dwvrs"
+    },
+    "categories": {
+      "auth": {
+        "dankysa4d59935": {}
+      }
+    }
+  }
+}
