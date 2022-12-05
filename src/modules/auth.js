@@ -1,7 +1,7 @@
 import { Auth } from 'aws-amplify';
 
 export const signUp = async (formData) => {
-    const { email, password, address, name } = formData;
+    const { email, password, address, name, birthdate } = formData;
 
     try {
         const { user } = await Auth.signUp({
@@ -10,7 +10,8 @@ export const signUp = async (formData) => {
             attributes: {
                 name,
                 email,
-                address 
+                address,
+                birthdate
             },
             autoSignIn: {
                 enabled: true,
@@ -38,5 +39,22 @@ export const signOut = async () => {
         await Auth.signOut();
     } catch (error) {
         console.log('error signing out: ', error);
+    }
+}
+
+export const userIsLoggedIn = async () => {
+    try {
+        await Auth.currentAuthenticatedUser();
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+export const verifyAccount = async (email, code) => {
+    try {
+        await Auth.confirmSignUp(email, code);
+    } catch (error) {
+          console.log('error confirming sign up', error);
     }
 }

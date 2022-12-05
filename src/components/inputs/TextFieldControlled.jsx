@@ -10,6 +10,7 @@ const TextFieldControlled = ({
     currency,
     password,
     label,
+    disabled,
     rules,
     variant,
     defaultValue,
@@ -44,6 +45,7 @@ const TextFieldControlled = ({
                 <TextField
                     data-cy={cy}
                     color={color}
+                    disabled={disabled}
                     className={className}
                     variant={variant}
                     type={password ? 'password' : ''}

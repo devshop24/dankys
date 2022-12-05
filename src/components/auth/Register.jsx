@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
@@ -6,12 +6,15 @@ import Text from "../base/Text";
 import TextFieldControlled from '../inputs/TextFieldControlled';
 
 import { useForm } from "react-hook-form";
+import { signUp, verifyAccount } from "../../modules/auth";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    const [displayVerification, setDisplayVerification] = useState(false);
+    const navigate = useNavigate();
     const {
         control,
-        handleSubmit,
-        reset
+        handleSubmit
     } = useForm({
         mode: 'all',
         defaultValues: {
@@ -22,13 +25,44 @@ const Register = () => {
             address_2: '',
             city: '',
             state: '',
-            zip: ''
+            zip: '',
+            code: ''
         }
     });
 
-    const submit = (values) => {
+    const submit = async (values) => {
         console.log({values})
+        const { address_1, address_2, city, state, zip} = values;
+        const registrationValues = {
+            email: values.email, 
+            password: values.password, 
+            address: `${address_1} ${address_2} ${city}, ${state}. ${zip}`, 
+            name: values.name,
+            birthdate: '11/13/1992'
+        }
+
+        try {
+            console.log({registrationValues})
+            const result = await signUp(registrationValues);
+            console.log({result});
+            setDisplayVerification(true);
+        } catch(error) {
+            console.log({error})
+        }
     }
+
+    const verify = async (values) => {
+        const {email, code} = values;
+
+        try {
+            const result = await verifyAccount(email, code);
+            console.log({result});
+            navigate('/shop');
+        } catch(error) {
+            console.log({error});
+        }
+    }
+
     return (
         <Stack sx={{boxShadow: 3, p: 3, m: 3, minHeight: '300px', width: {xs: '300px', md: '400px'} }} justifyContent="space-evenly">
             <Text component="h4" message="Register" sx={{borderBottom: '1px solid black'}} />
@@ -36,6 +70,7 @@ const Register = () => {
                 name="name"
                 label="Full Name"
                 color="primary"
+                disabled={displayVerification}
                 control={control}
                 rules={{
                     required: {
@@ -50,6 +85,7 @@ const Register = () => {
                 name="email"
                 label="Email"
                 color="primary"
+                disabled={displayVerification}
                 control={control}
                 rules={{
                     required: {
@@ -64,6 +100,7 @@ const Register = () => {
                 name="password"
                 label="Password"
                 color="primary"
+                disabled={displayVerification}
                 control={control}
                 password
                 rules={{
@@ -80,6 +117,7 @@ const Register = () => {
                 name="address_1"
                 label="Address Line 1"
                 color="primary"
+                disabled={displayVerification}
                 control={control}
                 rules={{
                     required: {
@@ -95,6 +133,7 @@ const Register = () => {
                 name="address_2"
                 label="Address Line 2 (optional)"
                 color="primary"
+                disabled={displayVerification}
                 control={control}
                 sx={{my:1.5}}
             />
@@ -103,6 +142,7 @@ const Register = () => {
                 name="city"
                 label="City"
                 color="primary"
+                disabled={displayVerification}
                 control={control}
                 rules={{
                     required: {
@@ -118,6 +158,7 @@ const Register = () => {
                     name="state"
                     label="State"
                     color="primary"
+                    disabled={displayVerification}
                     control={control}
                     rules={{
                         required: {
@@ -132,6 +173,7 @@ const Register = () => {
                     name="zip"
                     label="Postal Code"
                     color="primary"
+                    disabled={displayVerification}
                     control={control}
                     rules={{
                         required: {
@@ -143,8 +185,26 @@ const Register = () => {
                 />
             </Stack>
 
-            <Button variant="contained" color="primary" onClick={handleSubmit(submit)} sx={{width: 1/3, alignSelf: 'flex-end'}}>
-                Register
+            {
+                displayVerification && (
+                    <TextFieldControlled 
+                        name="code"
+                        label="Verification Code"
+                        color="primary"
+                        control={control}
+                        rules={{
+                            required: {
+                                value: true,
+                                message: 'Please provide verification code from email',
+                            },
+                        }}
+                        sx={{my:1.5}}
+                    />
+                )
+            }
+
+            <Button variant="contained" color="primary" onClick={displayVerification ? handleSubmit(verify)  : handleSubmit(submit)} sx={{width: 1/3, alignSelf: 'flex-end'}}>
+                {displayVerification ? 'Verify' : 'Register'}
             </Button>
         </Stack>
     )
