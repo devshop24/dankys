@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
 
 import Text from '../base/Text';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RouteMap } from '../../utils/navigation';
+import { useUser } from '../../hooks/auth';
+import { signOut } from '../../modules/auth';
 
 const TopNavigation = () => {
-    const user = {};
-
+    const { isLoggedIn } = useUser();
     const { pathname } = useLocation();
     const navigate = useNavigate();
 
     const determineHighlight = (route, pathname) => route === pathname ? 600 : 200;
     const determineTextColor = (route, pathname) => route === pathname ? 'white' : '#C0C0C0'
+
+    const logout = async () => {
+        await signOut();
+        navigate('/');
+    }
 
     const textStyles = (route) => ({
         mx: { xs: 1, sm: 2, md: 3 }, 
@@ -58,14 +64,22 @@ const TopNavigation = () => {
             />
 
             {
-                Object.keys(user).length 
+                isLoggedIn
                     ? (
+                        <>
                         <Text 
                             component="p" 
                             message="Cart" 
                             onClick={() => navigate(RouteMap.CART)} 
                             sx={textStyles(RouteMap.CART)}
                         />
+                        <Text 
+                            component="p" 
+                            message="Logout" 
+                            onClick={logout} 
+                            sx={textStyles(RouteMap.CART)}
+                        />
+                        </>
                     )
                     : (
                         <Text 

@@ -17,7 +17,7 @@ export const signUp = async (formData) => {
                 enabled: true,
             }
         });
-        console.log(user);
+
         return user;
     } catch (error) {
         console.log('error signing up:', error);
@@ -27,7 +27,7 @@ export const signUp = async (formData) => {
 export const signIn = async (email, password) => {
     try {
         const user = await Auth.signIn(email, password);
-        console.log(user);
+  
         return user;
     } catch (error) {
         console.log('error signing in', error);
@@ -44,10 +44,9 @@ export const signOut = async () => {
 
 export const userIsLoggedIn = async () => {
     try {
-        await Auth.currentAuthenticatedUser();
-        return true;
+        return await Auth.currentUserInfo();
     } catch {
-        return false;
+        return null;
     }
 }
 

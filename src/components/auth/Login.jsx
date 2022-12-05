@@ -6,12 +6,15 @@ import Text from "../base/Text";
 import TextFieldControlled from '../inputs/TextFieldControlled';
 
 import { useForm } from "react-hook-form";
+import { signIn } from "../../modules/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const {
         control,
         handleSubmit,
-        reset
     } = useForm({
         mode: 'all',
         defaultValues: {
@@ -20,9 +23,16 @@ const Login = () => {
         }
     });
 
-    const submit = (values) => {
-        console.log({values});
-        reset();
+    const submit = async (values) => {
+        const { email, password } = values;
+        
+        try {
+            const result = await signIn(email, password);
+            
+            if(result) navigate('/shop');
+        } catch(error) {
+            console.log({error})
+        }
     }
 
     return (
