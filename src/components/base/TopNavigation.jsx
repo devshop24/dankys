@@ -77,7 +77,7 @@ const TopNavigation = () => {
                             component="p" 
                             message="Logout" 
                             onClick={logout} 
-                            sx={textStyles(RouteMap.CART)}
+                            sx={textStyles()}
                         />
                         </>
                     )

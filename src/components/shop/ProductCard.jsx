@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Stack from '@mui/material/Stack';
 
 import Text from '../base/Text';
 import Button from '@mui/material/Button';
+import { CartContext } from '../../context/cart';
 
 const ProductCard = ({ id, Image, name, description, price, cartView}) => {
-    const addToCart = () => {
-        console.log('Add To Cart::', id);
-    }
+    const { addToCart }  = useContext(CartContext);
 
     return (
         <Stack direction="row" sx={{width: {xs: 1, md: cartView ? 1 : 2/5}, height: '250px', boxShadow: 3, mb: 3}}>
@@ -42,7 +41,7 @@ const ProductCard = ({ id, Image, name, description, price, cartView}) => {
                     {
                         !cartView 
                             ? (
-                                <Button variant="contained" color="primary" size="small" sx={{height: '30px', mr: { xs: 2, md: 0 }}} onClick={addToCart}>
+                                <Button variant="contained" color="primary" size="small" sx={{height: '30px', mr: { xs: 2, md: 0 }}} onClick={() => addToCart(id)}>
                                     Add To Cart
                                 </Button>
                             )

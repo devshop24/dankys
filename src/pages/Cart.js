@@ -1,48 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import Stack from '@mui/material/Stack';
 
 import CartCard from "../components/cart/CartCard";
 import PageContainer from "../components/base/PageContainer";
 import ReviewSummary from "../components/cart/ReviewSummary";
+import NoItemsInCart from "../components/cart/NoItemsInCart";
 
-import BannerImage from '../assets/banner.jpg';
+import { CartContext } from "../context/cart";
+import { ShopContext } from "../context/shop";
+import Text from "../components/base/Text";
 
-const mockProducts = []
-
-for(let i = 0; i < 4; i++) mockProducts.push({
-    id: i,
-    Image: BannerImage,
-    name: `product-${i}`,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt accusamus voluptatum fugit est! Nisi atque quia cupiditate explicabo laboriosam?" ,
-    price: 10.00,
-    quantity: i + 1
-});
-
-const generateSubtotal = (products) => {
-    let subtotal = 0;
-
-    products.forEach(({price, quantity}) => subtotal += (price * quantity));
-
-    return subtotal;
-}
-
-const subtotal = generateSubtotal(mockProducts)
-
-const cart = {
-    items: mockProducts,
-    subtotal: subtotal,
-    total: subtotal + (subtotal * 0.1)
-}
+// const cart = {
+//     items: mockProducts,
+//     subtotal: subtotal,
+//     total: subtotal + (subtotal * 0.1)
+// }
 
 const Cart = () => {
+    const { products } = useContext(ShopContext);
+    const { items } = useContext(CartContext);
+
+    const cartDisplayData = items.map(cartItem => {
+        const product = products.find(({id}) => id === cartItem.id);
+
+        return {
+            ...product,
+            quantity: cartItem.quantity
+        }
+    });
+
+    const itemsInCart = Boolean(cartDisplayData.length);
+
     return (
         <PageContainer>
             <Stack sx={{flexDirection: { xs: 'column-reverse', md: 'column' }}}>
-                <ReviewSummary cart={cart} />
-
-                <Stack alignItems="center" justifyContent="center" sx={{width: {xs: 0.9, md: 1/2}, py: 6, px: {xs: 2, md: 10}}}>
-                    {
-                        cart.items.map(({ id, Image, name, description, price, quantity}) => (
+                {itemsInCart && <ReviewSummary />}
+                {
+                    itemsInCart? 
+                    <Stack alignItems="center" justifyContent="center" sx={{width: {xs: 0.9, md: 1/2}, py: 6, px: {xs: 2, md: 10}}}>
+                        {cartDisplayData.map(({ id, Image, name, description, price, quantity}) => (
                             <CartCard 
                                 key={id}
                                 id={id}
@@ -52,9 +48,10 @@ const Cart = () => {
                                 price={price}
                                 quantity={quantity}
                             />
-                        ))
-                    }
-                </Stack>
+                        ))}
+                    </Stack>
+                    : <NoItemsInCart />
+                }
             </Stack>
         </PageContainer>
     )

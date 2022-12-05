@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from "@mui/material/Button";
 import Stack from '@mui/material/Stack';
 
 import Text from "../base/Text";
 
 import { Divider } from "@mui/material";
+import { CartContext } from '../../context/cart';
+import { ShopContext } from '../../context/shop';
 
-const ReviewSummary = ({cart}) => {
+const ReviewSummary = () => {
+    const { products } = useContext(ShopContext);
+    const { getCartTotal } = useContext(CartContext);
+
+    const total = getCartTotal(products);
 
     return (
         <Stack sx={{
@@ -27,17 +33,17 @@ const ReviewSummary = ({cart}) => {
        
             <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{pt: 2}}>
                 <Text component="p" message="Subtotal:" />
-                <Text component="p" message={`$${cart.subtotal.toFixed(2)}`} />
+                <Text component="p" message={`$${total.toFixed(2)}`} />
             </Stack>
 
-            <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{pt: 2}}>
+            {/* <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{pt: 2}}>
                 <Text component="p" message="Tax:" />
                 <Text component="p" message={`$${(cart.subtotal * 0.1).toFixed(2)}`} />
-            </Stack>
+            </Stack> */}
             <Divider sx={{width: 1}} />
             <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{pt: 2}}>
                 <Text component="p" message="Total:" />
-                <Text component="p" message={`$${cart.total.toFixed(2)}`} />
+                <Text component="p" message={`$${total.toFixed(2)}`} />
             </Stack>
 
             <Button variant="contained" color="primary" sx={{mt: 4}}>
